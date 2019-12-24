@@ -23,7 +23,7 @@ def erode(image, kernel_size=3):
     start = (kernel_size - 1) // 2
     for i in range(start, image.shape[0] - kernel_size + 1):
         for j in range(start, image.shape[1] - kernel_size + 1):
-            img[i, j] = np.min(image[i - start: i + start, j - start: j + start])
+            img[i, j] = np.min(image[i - start: i + start + 1, j - start: j + start + 1])
     return img
 
 
@@ -35,7 +35,7 @@ def dilate(image, kernel_size=3):
     start = (kernel_size - 1) // 2
     for i in range(start, image.shape[0] - kernel_size + 1):
         for j in range(start, image.shape[1] - kernel_size + 1):
-            img[i, j] = np.max(image[i - start: i + start, j - start: j + start])
+            img[i, j] = np.max(image[i - start: i + start + 1, j - start: j + start + 1])
     return img
 
 
